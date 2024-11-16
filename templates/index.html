@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <link rel="stylesheet" href="{{ url_for('static', filename='/css/index.css')}}">
+        <script src="../static/js/index.js" defer></script>
     </head>
     <body>
         <!-- Holo Overlay -->
@@ -10,7 +11,8 @@
         <div class="bay_modal" id="bay_modal" style="z-index: 50;">
             <button id="bay_modal_quit" style="position:fixed; top:0; right:0">x</button>
             <h1 id="bay_modal_title">Bay Modal</h1>
-            <form action="/" method="post">
+            <form method="post">
+                <input type="hidden" name="bay_identifier" value="1" />
                 <label for="from">From: </label>
                 <select name="from" id="from">
                     <option value="1">0400</option>
@@ -29,33 +31,14 @@
                     <option value="5">0800</option>
                     <option value="6">0900</option>
                 </select>
+                <button type="submit" class="bay_submit">Submit</button>
             </form>
         </div>
         <!-- Page Content -->
          <div class="page-content-container" style="position: absolute; top:50%; left:50%; transform: translateX(-50%) translateY(-50%); z-index:20;">
-            <button class="bay_modal_button" id="bay_1">
-                <img src="../static/bay_open.png" style="width: 24px; height: 24px; ">
+            <button class="bay_modal_button" id="1" name="Bay A1">
+                <img class="bay_modal_button_img" src="../static/bay_open.png" style="width: 24px; height: 24px; ">
             </button>
          </div>
-         <script>
-            // Handles displaying bay modals
-            const bay_modal = document.getElementById("bay_modal");
-            const modal_title = document.getElementById("bay_modal_title")
-            const modal_buttons = document.getElementsByClassName("bay_modal_button");
-            const bay_modal_quit = document.getElementById("bay_modal_quit")
-
-            // Close the modal when the exit button is clicked
-            bay_modal_quit.addEventListener('click', function() {
-                bay_modal.style = "visibility: hidden;"
-            })
-   
-            // Add event listeners to each bay button to open the modal
-            for (let i = 0; i < modal_buttons.length; i++) {
-                modal_buttons[i].addEventListener('click', function() {
-                    modal_title.innerText = modal_buttons[i].id;
-                    bay_modal.style = "visibility: visible;"
-                });
-            };
-        </script>
     </body>
 </html>
