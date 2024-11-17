@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <link rel="stylesheet" href="{{ url_for('static', filename='/css/index.css')}}">
-        <script src="../static/js/index.js" defer></script>
+        <script src="{{ url_for('static', filename='/js/index.js')}}" defer></script>
     </head>
     <body>
         <!-- Holo Overlay -->
@@ -20,7 +20,7 @@
             <button id="bay_modal_quit" style="position:fixed; top:0; right:0">x</button>
             <h1 id="bay_modal_title">Bay Modal</h1>
             <form method="post">
-                <input type="hidden" name="bay_identifier" value="1" />
+                <input class="bay_identifier" type="hidden" name="bay_identifier" value="1"/>
                 <label for="from">From: </label>
                 <select name="from" id="from">
                     <option value="1">0400</option>
