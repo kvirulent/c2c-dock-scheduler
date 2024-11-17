@@ -37,8 +37,6 @@ def ajax_response(data: dict[any,any],headers: dict[str, any], status: int, erro
 # Returns the index page
 @app.route("/", methods=['GET'])
 def index():
-
-    # Handle GET requests
     return render_template('index.html',bays=scheduler)
 
 # API Routes

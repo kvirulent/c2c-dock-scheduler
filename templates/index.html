@@ -7,6 +7,14 @@
     <body>
         <!-- Holo Overlay -->
         <div class="holo" style="position:fixed; width:100%; height:100%; left:0; top:0; z-index: 5; opacity: .6; pointer-events: none;"></div>
+        
+        <!-- Error Modal -->
+        <div class="error_modal_container">
+            <div class="error_modal">
+                <p class="error_modal_title">ERROR: ERROR_CONTEXT</p>
+            </div>
+        </div>
+        
         <!-- Bay Modal Form -->
         <div class="bay_modal" id="bay_modal" style="z-index: 50;">
             <button id="bay_modal_quit" style="position:fixed; top:0; right:0">x</button>
@@ -34,6 +42,7 @@
                 <button type="submit" class="bay_submit">Submit</button>
             </form>
         </div>
+
         <!-- Page Content -->
          <div class="page-content-container" style="position: absolute; top:50%; left:50%; transform: translateX(-50%) translateY(-50%); z-index:20;">
             <button class="bay_modal_button" id="1" name="Bay A1">
