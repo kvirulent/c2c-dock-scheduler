@@ -73,27 +73,39 @@ body {
     visibility:hidden;
 }
 
+.bay_modal_title {
+    visibility: hidden;
+    margin: 2px;
+}
+
 .bay_modal_button {
     background: none;
     color: inherit;
     border: none;
-    padding: 0;
+    padding: 4px;
     font: inherit;
     cursor: pointer;
     outline: inherit;
     z-index: 1
 }
 
-/* Filters: https://angel-rs.github.io/css-color-filter-generator/ */
-.bay_modal_button_img_occupied {
+.bay_modal_button:hover {
+    .bay_modal_title {
+        visibility: visible;
+    }
+}
+
+.bay_modal_button_img {
     width: 24px;
     height: 24px;
+}
+
+/* Filters: https://angel-rs.github.io/css-color-filter-generator/ */
+.bay_modal_button_img_occupied {
     filter: brightness(0) saturate(100%) invert(14%) sepia(60%) saturate(7092%) hue-rotate(357deg) brightness(102%) contrast(113%);
 }
 
 .bay_modal_button_img_free {
-    width: 24px;
-    height: 24px;
     filter: brightness(0) saturate(100%) invert(67%) sepia(77%) saturate(5110%) hue-rotate(85deg) brightness(127%) contrast(118%);
 }
 
