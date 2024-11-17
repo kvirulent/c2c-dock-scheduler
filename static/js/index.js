@@ -62,27 +62,27 @@ async function SetSchedule(bay_id, schedule) {
   });
 };
 
+// Hydration functions
 // Function to get server time and hydration data
 async function SetDataCache() {
-    server_time = await GetServerTime();
-    bays = await GetAllBays();
+    server_time = (await GetServerTime()).time;
+    bays = (await GetAllBays()).bays;
 }
 
 // Function to hydrate the bay modal buttons
 function HydrateButtons() {
-  for (let i = 0; i < BayModalButtons.length; i++) {
-    const button = BayModalButtons[i]
+  for (let i = 0; i < BayModalButtons.length; i++) { // Loop through every button
     const bay = bays[i]
-    for (let j = 0; j < bay.schedule.length; j++) {
-      if (bay.schedule[j][0] < server_time && bay.schedule[j][1] > server_time) {
-        console.log("Occupied Currently")
-        BayModalButtons[i].src = "../bay_closed.png"
-      }
+    BayModalButtons[i].querySelector(".bay_modal_title").innerText = BayModalButtons[i].name; // Set the button's title
+
+    if (bay.schedule[0] <= server_time && bay.schedule[1] >= server_time) { // Check if the bay is currently occupied
+      BayModalButtons[i].querySelectorAll(".bay_modal_button_img")[0].classList.value = "bay_modal_button_img_occupied" // Apply a filter to make the button white
     }
 
-    button.addEventListener('click', function() {
+    BayModalButtons[i].addEventListener('click', function() { // Add event listeners for openning the modal
       BayModal.querySelectorAll(".bay_identifier").value = bay_id;
       BayModal.style = "visibility: visible;"
+      // TODO: Hydrate the modal here
     })
   }
 }
