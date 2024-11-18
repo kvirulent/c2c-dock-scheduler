@@ -59,11 +59,8 @@ def seed():
 
     return bay_seed_list
         
-        
-
-
 # Define the bays that we will use to track the data
-bays = seed()
+bays = [Bay([], ["small","medium","large"][random.randint(0,2)]) for _ in range(random.randint(6,14))]
 
 # Define a function to get a bay
 def GetBay(index: int):

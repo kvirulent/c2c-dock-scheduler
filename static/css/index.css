@@ -45,6 +45,7 @@ body {
     mask-position: center;
     mask-repeat:no-repeat;
     mask-composite: intersect;
+    pointer-events: none;
 }
 
 /* Holographic overlay animation */
@@ -72,6 +73,8 @@ body {
     border: 2px dashed rgba(255,255,255);
     transition: size 2s;
     visibility:hidden;
+    z-index: 5;
+    isolation: isolate;
 }
 
 .bay_modal_title {
@@ -88,7 +91,8 @@ body {
     font: inherit;
     cursor: pointer;
     outline: inherit;
-    z-index: 1
+    z-index: 0;
+    pointer-events: all;
 }
 
 .bay_modal_button:hover {

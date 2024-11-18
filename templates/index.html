@@ -35,7 +35,7 @@
     </div>
 
     <!-- Bay Modal Form -->
-    <div class="bay_modal" id="bay_modal" style="z-index: 50">
+    <div class="bay_modal" id="bay_modal">
       <button class="bay_modal_quit" style="position: fixed; top: 0; right: 0">
         x
       </button>
@@ -117,6 +117,7 @@
         left: 50%;
         transform: translateX(-50%) translateY(-50%);
         z-index: 2;
+        pointer-events:none;
       "
     >
       {% for bay in bays %}
