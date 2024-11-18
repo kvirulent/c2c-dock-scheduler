@@ -87,6 +87,9 @@ function HydrateButtons() {
       BayModalButtons[i].querySelectorAll(".bay_modal_button_img")[0].classList.value = "bay_modal_button_img bay_modal_button_img_free";
     }
     
+    // Set random positions for the bay buttons
+    BayModalButtons[i].style = `top: ${Math.round(Math.floor(Math.random() * (85-15+1)+15) / 5) * 5}%; left: ${Math.round(Math.floor(Math.random() * (85-15+1)+15) / 5) * 5}%;`
+
     // Add event listeners for openning & hydrating the modal
     BayModalButtons[i].addEventListener('click', function() { 
       BayModal.querySelectorAll(".bay_identifier")[0].value = bay.id;

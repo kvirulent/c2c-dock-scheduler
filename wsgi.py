@@ -26,7 +26,7 @@ def ajax_response(data: dict[any,any],headers: dict[str, any], status: int, erro
         response.status_code = status
         return response
     except Exception as e: # Return an error if the response fails to construct
-        print(str(e))
+        print(traceback.format_exc())
         response = jsonify({"error":"Internal Server Error"})
         response.status_code = 500
         return response

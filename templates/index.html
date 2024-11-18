@@ -1,94 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link rel="stylesheet" href="{{ url_for('static', filename='/css/index.css')}}">
-        <script src="{{ url_for('static', filename='/js/index.js')}}" defer></script>
-    </head>
-    <body>
-        <!-- Holo Overlay -->
-        <div class="holo" style="position:fixed; width:100%; height:100%; left:0; top:0; z-index: 5; opacity: .6; pointer-events: none;"></div>
-        
-        <!-- Error Modal -->
-        <div class="error_modal_container">
-            <div class="error_modal">
-                <p class="error_modal_title">ERROR: ERROR_CONTEXT</p>
-            </div>
-        </div>
-        
-        <!-- Bay Modal Form -->
-        <div class="bay_modal" id="bay_modal" style="z-index: 50;">
-            <button class="bay_modal_quit" style="position:fixed; top:0; right:0">x</button>
-            <h1 id="bay_modal_title">Bay Modal</h1>
-            <form>
-                <input class="bay_identifier" type="hidden" name="bay_identifier" value="1"/>
-                <label for="from">From: </label>
-                <select name="from" id="from">
-                    <option value="1">0100</option>
-                    <option value="2">0200</option>
-                    <option value="3">0300</option>
-                    <option value="4">0400</option>
-                    <option value="5">0500</option>
-                    <option value="6">0600</option>
-                    <option value="7">0700</option>
-                    <option value="8">0800</option>
-                    <option value="9">0900</option>
-                    <option value="10">1000</option>
-                    <option value="11">1100</option>
-                    <option value="12">1200</option>
-                    <option value="13">1300</option>
-                    <option value="14">1400</option>
-                    <option value="15">1500</option>
-                    <option value="16">1600</option>
-                    <option value="17">1700</option>
-                    <option value="18">1800</option>
-                    <option value="19">1900</option>
-                    <option value="20">2000</option>
-                    <option value="21">2100</option>
-                    <option value="22">2200</option>
-                    <option value="23">2300</option>
-                    <option value="24">2400</option>
-                </select>
-                <label for="to">To: </label>
-                <select name="to" id="to">
-                    <option value="1">0100</option>
-                    <option value="2">0200</option>
-                    <option value="3">0300</option>
-                    <option value="4">0400</option>
-                    <option value="5">0500</option>
-                    <option value="6">0600</option>
-                    <option value="7">0700</option>
-                    <option value="8">0800</option>
-                    <option value="9">0900</option>
-                    <option value="10">1000</option>
-                    <option value="11">1100</option>
-                    <option value="12">1200</option>
-                    <option value="13">1300</option>
-                    <option value="14">1400</option>
-                    <option value="15">1500</option>
-                    <option value="16">1600</option>
-                    <option value="17">1700</option>
-                    <option value="18">1800</option>
-                    <option value="19">1900</option>
-                    <option value="20">2000</option>
-                    <option value="21">2100</option>
-                    <option value="22">2200</option>
-                    <option value="23">2300</option>
-                    <option value="24">2400</option>
-                </select>
-                <button type="submit" class="bay_submit">Submit</button>
-            </form>
-        </div>
+  <head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='/css/index.css')}}"
+    />
+    <script
+      src="{{ url_for('static', filename='/js/index.js')}}"
+      defer
+    ></script>
+  </head>
 
-        <!-- Page Content -->
-        <div class="page-content-container" style="display: flex; flex-direction: row; padding: 4px; position: absolute; top:50%; left:50%; transform: translateX(-50%) translateY(-50%); z-index:2;">
-            {% for bay in bays %}
-                <button class="bay_modal_button" id="{{ loop.index }}" name="Bay {{ loop.index }}">
-                    <p class="bay_modal_title">BAY_TITLE</p>
-                    <img class="bay_modal_button_img" src="../static/bay_mask.png">
-                </button>
-            {%  endfor %}      
-        </div>
-            
-         
-    </body>
+  <body>
+    <!-- Holo Overlay -->
+    <div
+      class="holo"
+      style="
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        z-index: 5;
+        opacity: 0.6;
+        pointer-events: none;
+      "
+    ></div>
+
+    <!-- Error Modal -->
+    <div class="error_modal_container">
+      <div class="error_modal">
+        <p class="error_modal_title">ERROR: ERROR_CONTEXT</p>
+      </div>
+    </div>
+
+    <!-- Bay Modal Form -->
+    <div class="bay_modal" id="bay_modal" style="z-index: 50">
+      <button class="bay_modal_quit" style="position: fixed; top: 0; right: 0">
+        x
+      </button>
+      <h1 id="bay_modal_title">Bay Modal</h1>
+      <form>
+        <input
+          class="bay_identifier"
+          type="hidden"
+          name="bay_identifier"
+          value="1"
+        />
+        <label for="from">From: </label>
+        <select name="from" id="from">
+          <option value="1">0100</option>
+          <option value="2">0200</option>
+          <option value="3">0300</option>
+          <option value="4">0400</option>
+          <option value="5">0500</option>
+          <option value="6">0600</option>
+          <option value="7">0700</option>
+          <option value="8">0800</option>
+          <option value="9">0900</option>
+          <option value="10">1000</option>
+          <option value="11">1100</option>
+          <option value="12">1200</option>
+          <option value="13">1300</option>
+          <option value="14">1400</option>
+          <option value="15">1500</option>
+          <option value="16">1600</option>
+          <option value="17">1700</option>
+          <option value="18">1800</option>
+          <option value="19">1900</option>
+          <option value="20">2000</option>
+          <option value="21">2100</option>
+          <option value="22">2200</option>
+          <option value="23">2300</option>
+          <option value="24">2400</option>
+        </select>
+        <label for="to">To: </label>
+        <select name="to" id="to">
+          <option value="1">0100</option>
+          <option value="2">0200</option>
+          <option value="3">0300</option>
+          <option value="4">0400</option>
+          <option value="5">0500</option>
+          <option value="6">0600</option>
+          <option value="7">0700</option>
+          <option value="8">0800</option>
+          <option value="9">0900</option>
+          <option value="10">1000</option>
+          <option value="11">1100</option>
+          <option value="12">1200</option>
+          <option value="13">1300</option>
+          <option value="14">1400</option>
+          <option value="15">1500</option>
+          <option value="16">1600</option>
+          <option value="17">1700</option>
+          <option value="18">1800</option>
+          <option value="19">1900</option>
+          <option value="20">2000</option>
+          <option value="21">2100</option>
+          <option value="22">2200</option>
+          <option value="23">2300</option>
+          <option value="24">2400</option>
+        </select>
+        <button type="submit" class="bay_submit">Submit</button>
+      </form>
+    </div>
+
+    <!-- Page Content -->
+    <div
+      class="page-content-container"
+      style="
+        width: 100%;
+        height: 100%;
+        padding: 4px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        z-index: 2;
+      "
+    >
+      {% for bay in bays %}
+      <button
+        class="bay_modal_button"
+        id="{{ loop.index }}"
+        name="Bay {{ loop.index }}"
+      >
+        <p class="bay_modal_title">BAY_TITLE</p>
+        <img class="bay_modal_button_img" src="../static/bay_mask.png" />
+      </button>
+      {% endfor %}
+    </div>
+
+    <!-- Corner Text -->
+    <p style="position: absolute; bottom: 0%; right: 2%">
+      DOCK_SCHEDULER v1.49.551
+    </p>
+  </body>
 </html>

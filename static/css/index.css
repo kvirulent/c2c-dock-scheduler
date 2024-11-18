@@ -11,6 +11,7 @@ html, body {
     margin: 0px;
     color: white;
     font-family: face;
+    overflow: hidden hidden;
 }
 
 /* Background image */
@@ -79,6 +80,7 @@ body {
 }
 
 .bay_modal_button {
+    position: absolute;
     background: none;
     color: inherit;
     border: none;
