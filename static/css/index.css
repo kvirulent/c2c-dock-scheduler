@@ -77,8 +77,7 @@ body {
     isolation: isolate;
 }
 
-.bay_modal_title {
-    visibility: hidden;
+#bay_modal_title {
     margin: 2px;
 }
 
